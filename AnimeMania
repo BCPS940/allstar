@@ -135,8 +135,6 @@ else
 				for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
 				    if v:FindFirstChild("AI") then
     					if not v.Humanoid.Health > 0 then
-    						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(0, -(_G.Distance), 0)
-    						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
     						me.Backpack.Input.Remote:FireServer({'Light'})
 						if not _G.NoSkill1 then
     							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '1'})
