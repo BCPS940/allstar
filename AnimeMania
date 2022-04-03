@@ -54,18 +54,7 @@ else
 	end)
 	end
     end
-    
-	-- Made by Viper123312 on V3rm
--- If you know a way to make it automatically select slot 1 w/ script, let me know!
-warn('Might be patched, I'm disabling the script for now.')
 
-game.StarterGui:SetCore("SendNotification", {
-Title = "Anime Mania";
-Text = "Script may be patched, so I've disabled it for now."; -- what the text says (ofc)
-Duration = 35; -- how long the notification should in secounds
-})
-
---[[
 repeat wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
 if game.PlaceId == 6284881984 then -- if main lobby
     warn('Map:', _G.Level)
