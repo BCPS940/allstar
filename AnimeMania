@@ -35,11 +35,30 @@ else
     me.Character.Humanoid:ChangeState(11)
     end)
     game.Players.LocalPlayer.DevCameraOcclusionMode = "Invisicam"
-
     
-    local function AutoSkills()
-        spawn(function()
-            for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
+    if _G.AutoSpam == true then
+	    	    while wait(.1) do
+			pcall(function()
+				for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
+				    if v:FindFirstChild("AI") then
+    					if v.Humanoid.Health == 0 then
+    						me.Backpack.Input.Remote:FireServer({'Light'})
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '1'})
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '2'})
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '3'})
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '4'})
+    						game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({ "Skill", "TeamAssist" })
+	        end
+		end
+    end
+end)
+end
+    end
+    
+	if _G.AttackType == "Spin" then
+		while wait(.1) do
+		    pcall(function()
+                            for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
 				    if v:FindFirstChild("AI") then
     					if v.Humanoid.Health > 0 then
     						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(-(_G.Distance), -(_G.Distance), 0)
@@ -82,32 +101,6 @@ else
 						end
 					end
             end
-        end)
-		end
-    
-    if _G.AutoSpam == true then
-	    	    while wait(.1) do
-			pcall(function()
-				for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
-				    if v:FindFirstChild("AI") then
-    					if v.Humanoid.Health == 0 then
-    						me.Backpack.Input.Remote:FireServer({'Light'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '1'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '2'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '3'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '4'})
-    						game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({ "Skill", "TeamAssist" })
-	        end
-		end
-    end
-end)
-end
-    end
-    
-	if _G.AttackType == "Spin" then
-		while wait(.1) do
-		    pcall(function()
-                AutoSkills()
 		    end)
 		end
     else
