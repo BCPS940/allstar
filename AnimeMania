@@ -55,6 +55,57 @@ else
 	end
     end
     
+	-- Made by Viper123312 on V3rm
+-- If you know a way to make it automatically select slot 1 w/ script, let me know!
+warn('Might be patched, I'm disabling the script for now.')
+
+game.StarterGui:SetCore("SendNotification", {
+Title = "Anime Mania";
+Text = "Script may be patched, so I've disabled it for now."; -- what the text says (ofc)
+Duration = 35; -- how long the notification should in secounds
+})
+
+--[[
+repeat wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
+if game.PlaceId == 6284881984 then -- if main lobby
+    warn('Map:', _G.Level)
+    if _G.AutoMerge then
+	wait(5.5) -- game doesn't load your inventory until a bit, so gotta wait
+	for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.CharacterSelection.Inventory.Inventory:GetChildren()) do
+	if v:IsA("ImageLabel") then
+    		if v.Star.Visible == false then
+        		game:GetService("ReplicatedStorage").Remotes.FeedCharacter:InvokeServer({ [v.Key.Value]= true }, _G.MergeCharacter)
+        		game:GetService("ReplicatedStorage").Remotes.CharacterSelection:InvokeServer()
+        		game:GetService("ReplicatedStorage").Remotes.CharacterCheck:InvokeServer()
+			warn('Combined', v.Name)
+end
+end
+end
+end
+    game:GetService("ReplicatedStorage").Remotes.CreateRoom:InvokeServer(_G.Level, _G.Password)
+    game:GetService("ReplicatedStorage").Remotes.BeginRoom:FireServer()
+else
+    local me = game.Players.LocalPlayer -- variable for easier usage later
+	
+    local mt = getrawmetatable(game)
+    local old = mt.__namecall
+    setreadonly(mt, false)
+    mt.__namecall = newcclosure(function(name, ...)
+        if tostring(getnamecallmethod()):lower() == "kick" then
+            return
+        elseif getnamecallmethod() == "FireServer" and tostring(name) == "Ban" then
+            return
+        end
+    return old(name, ...)
+    end)
+
+    game:GetService("RunService").RenderStepped:Connect(function()
+    me.Character.Humanoid:ChangeState(11)
+    end)
+    game.Players.LocalPlayer.DevCameraOcclusionMode = "Invisicam"
+
+    
+
 	if _G.AttackType == "Spin" then
 		while wait(.1) do
 		    pcall(function()
