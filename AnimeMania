@@ -85,8 +85,50 @@ else
         end)
 		end
     
+    if _G.AutoSpam == true then
+        for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
+				    if v:FindFirstChild("AI") then
+    						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(-(_G.Distance), -(_G.Distance), 0)
+    						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
+    						me.Backpack.Input.Remote:FireServer({'Light'})
+						if not _G.NoSkill1 then
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '1'})
+						end
+						if not _G.NoSkill2 then
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '2'})
+						end
+						if not _G.NoSkill3 then
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '3'})
+						end
+						if not _G.NoSkill4 then
+    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '4'})
+						end
+    						game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({ "Skill", "TeamAssist" })
+    						wait(.15)
+    						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(-(_G.Distance), -(_G.Distance), -(_G.Distance))
+    						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
+    						me.Backpack.Input.Remote:FireServer({'Light'})
+    						wait(.15)
+    						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(0, -(_G.Distance), -(_G.Distance))
+    						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
+    						me.Backpack.Input.Remote:FireServer({'Light'})
+    						wait(.15)
+    						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new((_G.Distance), -(_G.Distance), -(_G.Distance))
+    						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
+    						me.Backpack.Input.Remote:FireServer({'Light'})
+    						wait(.1)
+    						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new((_G.Distance), -(_G.Distance), 0)
+    						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
+    						me.Backpack.Input.Remote:FireServer({'Light'})
+    						wait(.15)
+    						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(0, -(_G.Distance), (_G.Distance))
+    						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
+    						me.Backpack.Input.Remote:FireServer({'Light'})
+    						wait(.15)
+						end
+				    end
+    end
     
-
 	if _G.AttackType == "Spin" then
 		while wait(.1) do
 		    pcall(function()
