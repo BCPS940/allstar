@@ -36,25 +36,6 @@ else
     end)
     game.Players.LocalPlayer.DevCameraOcclusionMode = "Invisicam"
     
-    if _G.AutoSpam == true then
-	    	    while wait(.1) do
-			pcall(function()
-				for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
-				    if v:FindFirstChild("AI") then
-    					if v.Humanoid.Health == 0 then
-    						me.Backpack.Input.Remote:FireServer({'Light'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '1'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '2'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '3'})
-    							game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({'Skill', '4'})
-    						game:GetService("Players").LocalPlayer.Backpack.Input.Remote:FireServer({ "Skill", "TeamAssist" })
-	        end
-		end
-    end
-end)
-end
-    end
-    
 	if _G.AttackType == "Spin" then
 		while wait(.1) do
 		    pcall(function()
