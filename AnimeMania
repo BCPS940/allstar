@@ -39,7 +39,7 @@ else
 	if _G.AttackType == "Spin" then
 		while wait(.1) do
 		    pcall(function()
-                            for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
+				for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
 				    if v:FindFirstChild("AI") then
     					if v.Humanoid.Health > 0 then
     						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(-(_G.Distance), -(_G.Distance), 0)
@@ -81,9 +81,9 @@ else
     						wait(.15)
 						end
 					end
-            end
+				end
 		    end)
-		end
+			end
     else
 	    while wait(.1) do
 			pcall(function()
