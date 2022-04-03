@@ -89,7 +89,6 @@ else
         while wait(.1) do
 		    pcall(function()
         for _,v in pairs(game:GetService("Workspace").Living:GetChildren()) do
-				    if v:FindFirstChild("AI") then
     						me.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + Vector3.new(-(_G.Distance), -(_G.Distance), 0)
     						me.Character.HumanoidRootPart.CFrame = CFrame.new(me.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
     						me.Backpack.Input.Remote:FireServer({'Light'})
@@ -128,7 +127,6 @@ else
     						me.Backpack.Input.Remote:FireServer({'Light'})
     						wait(.15)
 						end
-				    end
 				end)
 		    end
     end
