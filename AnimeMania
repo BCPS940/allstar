@@ -128,3 +128,11 @@ else
 	end
 end
 end
+
+    if _G.AutoSpam == true then
+	    	    while wait(.1) do
+			pcall(function()
+            AutoSpamSkill()
+			end)
+	end
+    end
